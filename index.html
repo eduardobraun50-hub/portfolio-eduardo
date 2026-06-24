@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ── SEO ── -->
+  <title>Eduardo Braun — Direct Response Video Editor</title>
+  <meta name="description" content="Portfolio of Eduardo Braun, a video editor focused on ads, VSLs, sales videos and marketing creatives." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="" />
+
+  <!-- ── Open Graph ── -->
+  <meta property="og:title" content="Eduardo Braun — Direct Response Video Editor" />
+  <meta property="og:description" content="Portfolio of Eduardo Braun, a video editor focused on ads, VSLs, sales videos and marketing creatives." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/profile/og-image.jpg" />
+
+  <!-- ── Styles ── -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ── Preconnect for Google Fonts ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════
+       HEADER / NAV
+  ════════════════════════════════════════ -->
+  <header id="site-header" role="banner">
+    <div class="container header-inner">
+
+      <!-- Logo -->
+      <a href="#" class="site-logo" id="site-logo" aria-label="Eduardo Braun — Home">
+        Eduardo Braun
+      </a>
+
+      <!-- Desktop nav -->
+      <nav aria-label="Main navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#clients">Clients</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile toggle -->
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="nav-links"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section id="hero" aria-label="Introduction">
+
+    <!-- Avatar -->
+    <div class="hero-avatar" id="hero-avatar" aria-hidden="true">
+      <!-- Populated by app.js -->
+    </div>
+
+    <!-- Name -->
+    <h1 class="hero-name" id="hero-name">Eduardo</h1>
+
+    <!-- Headline -->
+    <p class="hero-headline" id="hero-headline">
+      Direct Response Video Editor for Ads, VSLs &amp; Marketing Creatives
+    </p>
+
+    <!-- Scroll cue -->
+    <div class="hero-cue" aria-hidden="true">
+      <div class="hero-cue-arrow"></div>
+      <span>Selected work below</span>
+    </div>
+
+  </section>
+
+  <div class="section-divider"></div>
+
+
+  <!-- ════════════════════════════════════════
+       SELECTED WORK
+  ════════════════════════════════════════ -->
+  <section id="work" class="section" aria-labelledby="work-heading">
+    <div class="container">
+
+      <p class="section-title" id="work-heading">Selected Work</p>
+
+      <!-- Groups injected by app.js — organized by commercial purpose -->
+      <div id="work-groups-container" aria-label="Portfolio work organized by type">
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+
+  <!-- ════════════════════════════════════════
+       CLIENTS & PROJECTS
+  ════════════════════════════════════════ -->
+  <section id="clients" class="section" aria-labelledby="clients-heading">
+    <div class="container">
+
+      <div class="carousel-controls">
+        <p class="section-title" id="clients-heading" style="margin-bottom: 0;">Clients &amp; Projects</p>
+        <div class="carousel-arrows" role="group" aria-label="Carousel navigation">
+          <button class="carousel-btn" id="carousel-prev" aria-label="Previous client">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="carousel-btn" id="carousel-next" aria-label="Next client">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="carousel-outer">
+        <div class="carousel-fade-left" aria-hidden="true"></div>
+        <div class="carousel-wrapper" id="clients-wrapper" role="region" aria-label="Clients carousel" aria-live="polite">
+          <div class="carousel-track" id="clients-track">
+            <!-- Cards injected by app.js -->
+          </div>
+        </div>
+        <div class="carousel-fade-right" aria-hidden="true"></div>
+      </div>
+
+      <p class="carousel-hint" aria-hidden="true" style="margin-top: 12px; text-align: right;">Drag or swipe to see more</p>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+
+  <!-- ════════════════════════════════════════
+       WHAT I EDIT (Services strip)
+  ════════════════════════════════════════ -->
+  <section id="services" aria-labelledby="services-heading">
+    <div class="container services-inner">
+      <div id="services-strip" aria-label="Types of videos I edit">
+        <!-- Content injected by app.js -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       CONTACT
+  ════════════════════════════════════════ -->
+  <section id="contact" class="section" aria-labelledby="contact-heading">
+    <div class="container contact-inner">
+
+      <h2 class="contact-heading" id="contact-heading">Want to work together?</h2>
+      <p class="contact-sub">
+        Send me your project, references, deadline and what kind of video you need.
+      </p>
+
+      <div class="contact-methods">
+        <!-- Email -->
+        <div class="contact-card">
+          <div class="contact-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M2 7L12 13.5L22 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="contact-card-info">
+            <span class="contact-card-label">Email</span>
+            <span class="contact-card-value" id="contact-email-text"></span>
+          </div>
+          <button class="contact-card-copy" id="contact-email-copy" aria-label="Copy Email">Copy</button>
+        </div>
+
+        <!-- Discord -->
+        <div class="contact-card">
+          <div class="contact-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+            </svg>
+          </div>
+          <div class="contact-card-info">
+            <span class="contact-card-label">Discord</span>
+            <span class="contact-card-value" id="contact-discord-text"></span>
+          </div>
+          <button class="contact-card-copy" id="contact-discord-copy" aria-label="Copy Discord">Copy</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="container footer-inner">
+      <span class="footer-name">Eduardo Braun</span>
+      <span class="footer-copy">&copy; <script>document.write(new Date().getFullYear())</script> — Direct Response Video Editor</span>
+    </div>
+  </footer>
+
+
+  <!-- ════════════════════════════════════════
+       MODAL / LIGHTBOX
+  ════════════════════════════════════════ -->
+  <div
+    id="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    tabindex="-1"
+  >
+    <div class="modal-content" id="modal-content">
+
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span id="modal-tag"></span>
+          <span id="modal-title"></span>
+        </div>
+        <button class="modal-close" id="modal-close" aria-label="Close preview">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div id="modal-player"></div>
+
+    </div>
+  </div>
+
+
+  <!-- ── App Script ── -->
+  <script src="app.js"></script>
+
+</body>
+</html>
