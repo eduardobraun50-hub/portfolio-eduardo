@@ -876,11 +876,14 @@ footer { border-top: 1px solid var(--border); padding: 16px 0; }
 .extras-grid { grid-template-columns: 1fr; }
 #clients .clients-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 760px) { #clients .clients-grid { grid-template-columns: 1fr 1fr; } }
-.proof-shot-frame { overflow-x: auto; }
-@media (max-width: 540px) {
-  .proof-shot-labels, .proof-shot-frame { min-width: 640px; }
-  .proof-shot { overflow-x: auto; }
+/* Grid children may shrink below their content (prevents the page from widening) */
+.extras-grid > *, .work-groups > *, .panel, .work-group { min-width: 0; }
+.proof-shot-view--mobile { display: none; }
+@media (max-width: 640px) {
+  .proof-shot-view--desktop { display: none; }
+  .proof-shot-view--mobile { display: block; }
 }
+
 
 /* YouTube link in the modal header + fallback card */
 .modal-yt-link {
@@ -900,3 +903,23 @@ footer { border-top: 1px solid var(--border); padding: 16px 0; }
   padding: 12px 20px; border-radius: 999px; box-shadow: 0 8px 30px rgba(0,0,0,0.5);
 }
 .yt-fallback:hover .yt-fallback-btn { transform: translate(-50%, -50%) scale(1.04); }
+
+/* ─── Video modal sized by the video's shape, so no empty strip next to the player ─── */
+#modal-overlay { padding: 16px; }
+.modal-content--vertical {
+  --ph: min(78vh, calc((100vw - 32px) * 16 / 9));
+  width: calc(var(--ph) * 9 / 16); max-width: none;
+}
+.modal-content--portrait {
+  --ph: min(78vh, calc((100vw - 32px) * 4 / 3));
+  width: calc(var(--ph) * 3 / 4); max-width: none;
+}
+.modal-content--vertical #modal-player,
+.modal-content--portrait #modal-player { aspect-ratio: auto; max-height: none; width: 100%; height: var(--ph); }
+#modal-player > iframe, #modal-player > div { width: 100% !important; height: 100% !important; }
+.modal-content--vertical .modal-header, .modal-content--portrait .modal-header { max-width: 100%; }
+.modal-content--vertical #modal-title, .modal-content--portrait #modal-title { min-width: 0; }
+
+/* keep the decorative hero glow from widening the page on phones */
+#hero { overflow-x: clip; }
+html, body { max-width: 100%; overflow-x: clip; }

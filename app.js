@@ -131,6 +131,11 @@ const SITE_DATA = {
     screenshot: "assets/proof/spent-proof-full.jpg",     // the full print, shown as-is
     // Where the columns sit in the screenshot: [left %, width %]
     columns: { editor: [0, 10], spend: [56.95, 26.5], roas: [83.5, 16.5] },
+    // Phone version: only Editor · Ad spend · ROAS, so it fits without scrolling
+    mobile: {
+      screenshot: "assets/proof/spent-proof-mobile.jpg",
+      columns: { editor: [0, 26.5], spend: [26.9, 26.0], roas: [53.4, 46.6] },
+    },
     rows: [
       { creative: "DCT#127", client: "Zyren Beauty", launched: "09/10", status: "Live", spend: 34087.31, roas: 1.99 },
       { creative: "DCT#196", client: "Zyren Beauty", launched: "09/10", status: "Live", spend: 858.50,   roas: 1.469 },
@@ -398,23 +403,29 @@ function renderSpentProof() {
   const blendedRoas = data.rows.reduce((t, r) => t + r.spend * r.roas, 0) / totalSpend;
   const bestRoas = Math.max(...data.rows.map(r => r.roas));
 
-  container.innerHTML = `
-    <figure class="proof-shot">
+  const shotHtml = (src, cols, variant) => `
+    <div class="proof-shot-view proof-shot-view--${variant}">
       <div class="proof-shot-labels" aria-hidden="true">
-        <span class="proof-shot-label proof-shot-label--editor" style="left:${data.columns.editor[0]}%;width:${data.columns.editor[1]}%">Editor</span>
-        <span class="proof-shot-label proof-shot-label--spend" style="left:${data.columns.spend[0]}%;width:${data.columns.spend[1]}%">Ad spend</span>
-        <span class="proof-shot-label proof-shot-label--roas" style="left:${data.columns.roas[0]}%;width:${data.columns.roas[1]}%">ROAS</span>
+        <span class="proof-shot-label proof-shot-label--editor" style="left:${cols.editor[0]}%;width:${cols.editor[1]}%">Editor</span>
+        <span class="proof-shot-label proof-shot-label--spend" style="left:${cols.spend[0]}%;width:${cols.spend[1]}%">Ad spend</span>
+        <span class="proof-shot-label proof-shot-label--roas" style="left:${cols.roas[0]}%;width:${cols.roas[1]}%">ROAS</span>
       </div>
       <div class="proof-shot-frame">
-        <img src="${data.screenshot}" alt="Client ads tracker: ads edited by Eduardo, with ad spend and ROAS" loading="lazy" />
-        <span class="proof-shot-box proof-shot-box--spend" style="left:${data.columns.spend[0]}%;width:${data.columns.spend[1]}%"></span>
-        <span class="proof-shot-box proof-shot-box--roas" style="left:${data.columns.roas[0]}%;width:${data.columns.roas[1]}%"></span>
+        <img src="${src}" alt="Client ads tracker: ads edited by Eduardo, with ad spend and ROAS" loading="lazy" />
+        <span class="proof-shot-box proof-shot-box--spend" style="left:${cols.spend[0]}%;width:${cols.spend[1]}%"></span>
+        <span class="proof-shot-box proof-shot-box--roas" style="left:${cols.roas[0]}%;width:${cols.roas[1]}%"></span>
       </div>
+    </div>`;
+
+  container.innerHTML = `
+    <figure class="proof-shot">
+      ${shotHtml(data.screenshot, data.columns, "desktop")}
+      ${data.mobile ? shotHtml(data.mobile.screenshot, data.mobile.columns, "mobile") : ""}
       <figcaption class="proof-legend">A sample of my live ads, straight from a client's tracker. <b>Ad spend</b> = money invested in the ad · <b>ROAS</b> = revenue ÷ ad spend</figcaption>
     </figure>`;
 
-  const shot = container.querySelector(".proof-shot-frame");
-  if (shot) shot.addEventListener("click", () => openProofImage({ imageSrc: data.screenshotFull || data.screenshot, label: "Ads manager screenshot" }));
+  container.querySelectorAll(".proof-shot-frame").forEach(f =>
+    f.addEventListener("click", () => openProofImage({ imageSrc: data.screenshot, label: "Ads manager screenshot" })));
 }
 
 function openProofImage(proof) {
@@ -489,6 +500,8 @@ function renderYouTube(player, project, watchUrl) {
     if (window.YT && window.YT.Player) {
       new window.YT.Player(holder.id, {
         videoId: project.youtubeId,
+        width: "100%",
+        height: "100%",
         host: "https://www.youtube.com",
         playerVars: { autoplay: 1, rel: 0, modestbranding: 1, playsinline: 1, origin: location.origin },
         events: { onError: () => showYouTubeFallback(player, project) },
